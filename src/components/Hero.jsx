@@ -1,13 +1,14 @@
 import React from 'react';
 import FadeInUp from './FadeInUp';
-import heroBg from '../hero-bg.jpg';
+import HeroBackground from './HeroBackground';
 import { Star } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <FadeInUp as="header" className="hero section" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-      <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(255, 255, 255, 0.5)', zIndex: 0 }}></div>
-      <div className="hero-content" style={{ position: 'relative', zIndex: 1 }}>
+    <FadeInUp as="header" className="hero section" style={{ position: 'relative', overflow: 'hidden' }}>
+      <HeroBackground />
+      <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(255, 255, 255, 0.5)', zIndex: 1 }}></div>
+      <div className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
         <div className="badge">World-class Vitreo-Retinal Care</div>
         <h1 className="hero-title">
           Shaureen Advanced <br /> Eye Care <br />
