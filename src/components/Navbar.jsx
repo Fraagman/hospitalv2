@@ -72,21 +72,12 @@ export default function Navbar() {
     <>
       <nav className="navbar fade-in-up visible">
         <div className="nav-logo-wrapper">
-          <Link to="/" className="logo text-[#1A1A1A] hover:opacity-80 transition-opacity">
+          <Link to="/" className="logo text-white hover:opacity-80 transition-opacity">
             Shaureen
           </Link>
         </div>
         <div className="nav-spacer"></div>
-        <ul className="nav-links">
-          <li>
-            <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
-              Home
-            </Link>
-          </li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#why-us">About</a></li>
-          <li><a href="#site-footer">Contact</a></li>
-        </ul>
+
         <div className="nav-icons flex items-center gap-4">
           {/* Profile Section */}
           {user ? (

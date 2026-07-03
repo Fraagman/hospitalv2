@@ -11,7 +11,7 @@ const INITIAL_REVIEWS = [
     heroImg: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=400",
     rating: "5/5",
-    colorClass: "peach-bg",
+    colorClass: "bg-accent-main",
     type: "bg-img",
   },
   {
@@ -22,7 +22,7 @@ const INITIAL_REVIEWS = [
     heroImg: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
     rating: "5/5",
-    colorClass: "light-green",
+    colorClass: "bg-accent-bright",
     type: "cutout",
   },
   {
@@ -33,7 +33,7 @@ const INITIAL_REVIEWS = [
     heroImg: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=400",
     rating: "5/5",
-    colorClass: "orange-bg",
+    colorClass: "bg-site-theme",
     type: "bg-img",
   },
   {
@@ -44,7 +44,7 @@ const INITIAL_REVIEWS = [
     heroImg: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=400",
     rating: "5/5",
-    colorClass: "green-bg",
+    colorClass: "bg-accent-main",
     type: "bg-img",
   },
   {
@@ -55,7 +55,7 @@ const INITIAL_REVIEWS = [
     heroImg: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
     rating: "5/5",
-    colorClass: "light-blue",
+    colorClass: "bg-accent-light",
     type: "cutout",
   }
 ];
