@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Phone, LogOut, Check, X, ShieldCheck } from 'lucide-react';
+import { User, Phone, LogOut, Check, X, ShieldCheck, Menu } from 'lucide-react';
 
 export default function Navbar() {
   const { user, profile, loginWithGoogle, mockLogin, logout, updateProfile } = useAuth();
   const location = useLocation();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [editName, setEditName] = useState('');
   const [editPhone, setEditPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
@@ -19,6 +20,21 @@ export default function Navbar() {
       setEditPhone(profile.phone || '');
     }
   }, [profile]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -93,16 +109,76 @@ export default function Navbar() {
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#3770bf]/20 text-[#3770bf] hover:border-[#3770bf] hover:bg-[#3770bf]/5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer"
             >
               <User size={14} />
-              Sign In
+              <span className="hidden sm:inline">Sign In</span>
             </button>
           )}
 
-          {/* Call to Action Button */}
-          <Link to="/book-appointment" className="contact-btn text-xs sm:text-sm whitespace-nowrap">
+          {/* Call to Action Button - hidden on mobile, available in hamburger menu */}
+          <Link to="/book-appointment" className="contact-btn text-xs sm:text-sm whitespace-nowrap hide-on-mobile">
             Book Appointment
           </Link>
+
+          {/* Hamburger Button - visible on mobile/tablet only */}
+          <button
+            className="hamburger-btn"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="mobile-menu-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className="mobile-menu-content"
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -30, opacity: 0 }}
+              transition={{ duration: 0.3, delay: 0.05 }}
+            >
+              <ul className="mobile-nav-links">
+                <li>
+                  <Link
+                    to="/"
+                    className={location.pathname === '/' ? 'active' : ''}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <a href="#services" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
+                </li>
+                <li>
+                  <a href="#why-us" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+                </li>
+                <li>
+                  <a href="#site-footer" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+                </li>
+              </ul>
+              <div className="mobile-menu-cta">
+                <Link
+                  to="/book-appointment"
+                  className="mobile-book-btn"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Book Appointment →
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Profile Modal */}
       <AnimatePresence>

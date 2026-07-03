@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import drImg from '../img/R-1.jpg';
-import optImg from '../img/67133d513112ae5e0ebf734286fcf2e8.png';
 
 export default function Services() {
   return (
@@ -38,7 +37,7 @@ export default function Services() {
         <Reveal direction="left" delay={300} className="services-card peach-theme cursor-pointer hover:scale-105 transition-transform duration-300">
           <Link to="/doctor/sonal" className="flex items-end justify-center w-full h-full">
             <div className="services-card-bg-wrapper">
-               <img src={optImg} alt="Dr. Sonal Shamik Ambatkar" />
+               <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" alt="Dr. Sonal Shamik Ambatkar" />
             </div>
             <div className="glass-panel">
               <div className="glass-top">

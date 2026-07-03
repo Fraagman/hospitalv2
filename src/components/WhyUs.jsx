@@ -6,6 +6,11 @@ import { Eye, Stethoscope, Microscope, Hospital } from 'lucide-react';
 export default function WhyUs() {
   return (
     <section className="why-us section">
+      {/* Mobile Title (visible only on <=1024px) */}
+      <Reveal direction="down" delay={50} className="mobile-only-title">
+        <h2 className="bento-main-title">Why Us?</h2>
+      </Reveal>
+
       <div className="bento-container">
         {/* Left Column */}
         <div className="bento-left">

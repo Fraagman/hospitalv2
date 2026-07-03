@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import img1 from '../img/automated-visual-field-analyzer.png';
@@ -19,18 +19,45 @@ const equipments = [
   { id: 7, src: img7, label: 'Fundus Camera', desc: 'Widefield retina photography' }
 ];
 
-const positions = [
-  { x: 0, y: 0 },         // 1. Center
-  { x: 0, y: -115 },      // 2. Top
-  { x: 100, y: -57.5 },   // 3. Top-Right
-  { x: 100, y: 57.5 },    // 4. Bottom-Right
-  { x: 0, y: 115 },       // 5. Bottom
-  { x: -100, y: 57.5 },   // 6. Bottom-Left
-  { x: -100, y: -57.5 }   // 7. Top-Left
-];
+// Responsive size configs
+const sizeConfigs = {
+  mobile: { hexW: 55, hexH: 63, spacing: 60, left: '45%', width: '55%' },
+  tablet: { hexW: 85, hexH: 98, spacing: 94, left: '40%', width: '60%' },
+  desktop: { hexW: 110, hexH: 126, spacing: 115, left: '25%', width: '75%' }
+};
 
-export default function EquipmentCarousel() { // Keeping name to avoid changing WhyUs.jsx
+function getConfig(width) {
+  if (width <= 640) return sizeConfigs.mobile;
+  if (width <= 1024) return sizeConfigs.tablet;
+  return sizeConfigs.desktop;
+}
+
+function getPositions(spacing) {
+  const hx = spacing * 0.87; // horizontal offset for hex grid
+  return [
+    { x: 0, y: 0 },
+    { x: 0, y: -spacing },
+    { x: hx, y: -spacing * 0.5 },
+    { x: hx, y: spacing * 0.5 },
+    { x: 0, y: spacing },
+    { x: -hx, y: spacing * 0.5 },
+    { x: -hx, y: -spacing * 0.5 }
+  ];
+}
+
+export default function EquipmentCarousel() {
   const [hoveredId, setHoveredId] = useState(null);
+  const [config, setConfig] = useState(() => getConfig(typeof window !== 'undefined' ? window.innerWidth : 1200));
+
+  useEffect(() => {
+    const handleResize = () => {
+      setConfig(getConfig(window.innerWidth));
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const positions = getPositions(config.spacing);
 
   return (
     <div 
@@ -38,8 +65,8 @@ export default function EquipmentCarousel() { // Keeping name to avoid changing 
       style={{
         position: 'absolute',
         top: 0,
-        left: '25%', // Pushed to the right to avoid overlapping text
-        width: '75%',
+        left: config.left,
+        width: config.width,
         height: '100%',
         display: 'flex',
         justifyContent: 'center',
@@ -69,10 +96,10 @@ export default function EquipmentCarousel() { // Keeping name to avoid changing 
                 position: 'absolute',
                 top: pos.y,
                 left: pos.x,
-                width: '110px',
-                height: '126px', // Height for a pointy-top hex (approx width * 1.15)
-                marginLeft: '-55px',
-                marginTop: '-63px',
+                width: `${config.hexW}px`,
+                height: `${config.hexH}px`,
+                marginLeft: `${-config.hexW / 2}px`,
+                marginTop: `${-config.hexH / 2}px`,
                 clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
                 background: '#ffffff',
                 boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
@@ -117,17 +144,17 @@ export default function EquipmentCarousel() { // Keeping name to avoid changing 
                       flexDirection: 'column',
                       justifyContent: 'center',
                       alignItems: 'center',
-                      background: 'rgba(37, 99, 235, 0.85)', // Blue primary color
+                      background: 'rgba(37, 99, 235, 0.85)',
                       backdropFilter: 'blur(2px)',
                       color: 'white',
                       textAlign: 'center',
                       padding: '8px'
                     }}
                   >
-                    <span style={{ fontSize: '11px', fontWeight: 'bold', lineHeight: '1.1', marginBottom: '4px' }}>
+                    <span style={{ fontSize: config.hexW <= 70 ? '8px' : '11px', fontWeight: 'bold', lineHeight: '1.1', marginBottom: '4px' }}>
                       {eq.label}
                     </span>
-                    <span style={{ fontSize: '9px', lineHeight: '1.2', opacity: 0.9 }}>
+                    <span style={{ fontSize: config.hexW <= 70 ? '7px' : '9px', lineHeight: '1.2', opacity: 0.9 }}>
                       {eq.desc}
                     </span>
                   </motion.div>

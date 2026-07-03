@@ -456,62 +456,18 @@ export default function DoctorProfile() {
           </motion.div>
 
           <div className="dp2-journey-map">
-            <svg viewBox="0 0 800 400" className="dp2-map-svg">
-              <defs>
-                <pattern id="jGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke={C.ice} strokeWidth="0.4" opacity="0.3" />
-                </pattern>
-                <filter id="glow2"><feGaussianBlur stdDeviation="4" result="b"/>
-                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-              <rect width="800" height="400" fill="url(#jGrid)" />
-
-              {/* India shape */}
-              <path d="M420,100 C440,90 480,85 510,95 C540,105 560,130 570,160 C580,190 575,230 565,260 C555,290 535,320 510,345 C500,355 485,365 470,370 C455,365 440,345 435,320 C430,295 425,270 420,245 C415,220 412,195 415,170 C418,145 415,120 420,100 Z"
-                fill={C.ice} opacity="0.12" stroke={C.ice} strokeWidth="1.2" />
-
-              {/* UK */}
-              <ellipse cx="150" cy="75" rx="25" ry="20" fill={C.ice} opacity="0.1" stroke={C.ice} strokeWidth="1" />
-              <text x="150" y="55" textAnchor="middle" fill={C.harbor} fontSize="10" fontFamily="Inter" fontWeight="700" opacity="0.5">UK</text>
-
-              {/* USA */}
-              <rect x="20" y="100" width="60" height="40" rx="12" fill={C.ice} opacity="0.1" stroke={C.ice} strokeWidth="1" />
-              <text x="50" y="95" textAnchor="middle" fill={C.harbor} fontSize="10" fontFamily="Inter" fontWeight="700" opacity="0.5">USA</text>
-
-              {/* Connection path */}
-              <motion.path
-                d="M500,180 Q480,280 475,330 Q460,290 490,260 Q400,200 250,120 Q200,100 150,75 Q100,90 50,120 Q200,180 500,180"
-                fill="none" stroke={C.harbor} strokeWidth="1.5"
-                strokeDasharray="8,6" strokeOpacity="0.25"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
+            {doctor.journeyMapImage ? (
+              <motion.img 
+                src={doctor.journeyMapImage} 
+                alt={`${doctor.name} Journey Map`} 
+                className="dp2-map-img"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 3, ease: 'easeInOut' }}
+                transition={{ duration: 0.8 }}
+                style={{ width: '100%', height: 'auto', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'block' }}
               />
-
-              {/* Pins */}
-              {[
-                { x: 500, y: 180, label: 'Nagpur', color: C.herb },
-                { x: 475, y: 330, label: 'Tirunelveli', color: C.ice },
-                { x: 490, y: 300, label: 'Madurai', color: C.ice },
-                { x: 150, y: 75, label: 'London', color: C.harbor },
-                { x: 50, y: 120, label: 'USA', color: C.harbor },
-              ].map((pin, i) => (
-                <g key={i}>
-                  <motion.circle cx={pin.x} cy={pin.y} r="14" fill="none"
-                    stroke={pin.color} strokeWidth="1.5"
-                    animate={{ r: [8, 18, 8], opacity: [0.6, 0, 0.6] }}
-                    transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.3 }} />
-                  <circle cx={pin.x} cy={pin.y} r="7" fill={pin.color} filter="url(#glow2)" />
-                  <circle cx={pin.x} cy={pin.y} r="3" fill="#fff" />
-                  <text x={pin.x} y={pin.y - 16} textAnchor="middle"
-                    fill={C.dark} fontSize="11" fontFamily="'Playfair Display'" fontWeight="700">
-                    {pin.label}
-                  </text>
-                </g>
-              ))}
-            </svg>
+            ) : null}
 
             {/* Journey cards stacked organically */}
             <div className="dp2-journey-cards">

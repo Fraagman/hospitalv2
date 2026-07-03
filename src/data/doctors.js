@@ -1,4 +1,10 @@
+import drShamikImg from '../img/R-1.jpg';
+import drSonalImg from '../img/67133d513112ae5e0ebf734286fcf2e8.png';
+import shamikJourneyMap from '../img/shamik_journey_v2.png';
+import sonalJourneyMap from '../img/sonal_journey_v2.png';
+
 export const doctors = [
+
   {
     id: "shamik",
     name: "Dr. Shamik A. Ambatkar",
@@ -7,8 +13,9 @@ export const doctors = [
     experience: "22+",
     practisingSince: 2001,
     phone: "0712 2232005",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800",
+    image: drShamikImg,
     coverImage: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1200",
+    journeyMapImage: shamikJourneyMap,
     about: "Dr. Shamik A Ambatkar is a premier Vitreo-Retinal Surgeon based in Nagpur at Shaureen Advanced Eye Care Hospital. He has an MBBS and Diplomate of the National Board (DNB) in Ophthalmology as his main medical qualifications. He did his post-graduation from Aravind Eye Hospital in Madurai, where he was also a Consultant for four years, while completing a Fellowship in Vitreo-Retina there and clearing the Part I requirements for fellow status at the International Council of Ophthalmology (London).",
 
     specializations: [
@@ -103,6 +110,7 @@ export const doctors = [
     phone: "09423638101",
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800",
     coverImage: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=1200",
+    journeyMapImage: sonalJourneyMap,
     about: "Dr. Sonal Shamik Ambatkar is a highly experienced Consultant Ophthalmologist specializing in Glaucoma Services. She trained at the prestigious Aravind-Zeiss Centre of Excellence, Aravind Eye Hospital, under Dr. R Ramakrishnan. She is an expert in high-volume cataract surgeries, having performed over 12,000 manual small incision cataract surgeries, alongside advanced glaucoma management, phacoemulsification, and anterior segment laser procedures.",
     
     specializations: [
