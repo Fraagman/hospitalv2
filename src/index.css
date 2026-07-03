@@ -1762,6 +1762,11 @@ h1, h2, h3 {
     transform: translateY(0);
 }
 
+/* Disable CSS transitions when GSAP scroll animation takes control */
+.hero.section.fade-in-up.visible[style*="translate"] {
+    transition: none;
+}
+
 .reveal {
     opacity: 0;
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
