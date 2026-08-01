@@ -11,8 +11,8 @@ export default function Hero() {
       <div className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
         <div className="badge">World-class Vitreo-Retinal Care</div>
         <h1 className="hero-title">
-          Shaureen Advanced <br /> Eye Care <br />
-          <span className="gradient-text">Nagpur's Leading</span> Vision Center
+          Aura Vision <br />
+          <span className="gradient-text">Premier Vision Care</span> Center
         </h1>
         <div className="hero-actions">
           <button className="primary-btn">

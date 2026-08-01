@@ -1,40 +1,27 @@
-# Dr. Shamik A Ambatkar
+# Dr. Alex Vance
 
-**Qualifications:** MBBS, DNB (Ophthalmology)
+**Qualifications:** MBBS, DNB (Ophthalmology), FICO
 **Specialisation:** Vitreo-Retinal Surgery
 **Practising Since:** 2001
-**Phone:** 0712 2232005
+**Phone:** +1 (800) 555-0199
 
 ---
 
 ## About Doctor
-Dr. Shamik A Ambatkar is a Vitreo-Retinal Surgeon based in Nagpur, where he practises at the Shaureen Advanced Eye Care Hospital. He has an MBBS and Diplomate of the National Board (DNB) in Ophthalmology as his main medical qualifications. He did his post-graduation from Aravind Eye Hospital in Madurai, where he was also a Consultant for four years, while completing a Fellowship in Vitreo-Retina there and clearing the Part I requirements for fellow status at the International Council of Ophthalmology (London).  
+Dr. Alex Vance is a premier Vitreo-Retinal Surgeon based at Aura Vision Center. Holding an MBBS and Diplomate of the National Board (DNB) in Ophthalmology, Dr. Vance completed advanced post-graduate fellowship training in Vitreo-Retinal surgery and is a fellow of the International Council of Ophthalmology.
 
-Dr. Ambatkar began his career in August 2001 as a Medical Officer at the Aravind Eye Hospital, Tirunelveli, where he spent a year getting trained in manual SICS/ instrumental phacoemulsification and orbital surgeries. He also conducted free eye camps and attended general OPD and OT facilities. In August 2002, he was promoted to Head of the Department and Consultant (Vitreo-Retina services), a post he held up to 2005. During this stint, he underwent extensive training in the areas of vitreous and retinal surgeries under the experienced hands of Dr. P Namperumalsamy. He has also worked on the diabetic retinopathy project in collaboration with the World Diabetic Foundation under the aegis of TIFAC-CORE at the Aravind Eye Hospital, Madurai.
+Dr. Vance began his surgical career focusing on manual SICS, instrumental phacoemulsification, and orbital surgeries. Promoted to Head of Department (Vitreo-Retina services), Dr. Vance led vitreous and retinal surgeries and directed clinical research initiatives in diabetic retinopathy.
 
-In 2007, Dr. Ambatkar commenced his own private practice at the Shaureen Advanced Eye Care Hospital, which functions as a centre for advanced retinal/glaucoma surgeries and lasers. 
-
-Dr. Shamik Ambatkar has been actively involved in research and several of his papers and reports have been published in national and international medical and house journals. He has also presented papers at several medical conferences held at the local, regional and national levels. In addition to being an invited faculty member to deliver lectures and give presentations at various symposia, Dr. Ambatkar is also a member of several associations.
+In 2007, Dr. Vance established a specialized private practice at Aura Vision Center, which functions as a leading facility for advanced retinal, glaucoma, and laser procedures.
 
 ---
 
 ## Fellowships
-* **Fellowship in Vitreo-Retinal Surgery.** Aravind Eye Hospital. 2003. (India)
+* **Fellowship in Vitreo-Retinal Surgery.** National Eye Care Institute. 2003.
 * **Fellow, International Council of Ophthalmology (Part I).** London. 2003. (United Kingdom)
 
 ---
 
-## Accreditation
-* Member, Rotary International.
-* Member, Rotary Club of Nagpur, Wardha.
-* Organising Committee Member, Tamil Nadu Ophthalmic Association Conference, Tirunelveli. 2004.
-* Organising Committee Member, Glaucoma Society of India Annual Meeting, Tirunelveli. 2003.
-
----
-
-## Ailments
-* Age Related Macular Degeneration
-* Cataract
 * Conjunctivitis
 * Diabetic Retinopathy
 * Endopthalmitis
@@ -76,7 +63,7 @@ Dr. Shamik Ambatkar has been actively involved in research and several of his pa
 ---
 
 ## Appointment Information
-**Shaureen Advanced Eye Care Hospital** **Address:** Ajni Square, Wardha Road, Vivekanand Nagar, Nagpur - 440015, Maharashtra  
+**Shaureen** **Address:** Ajni Square, Wardha Road, Vivekanand Nagar, Nagpur - 440015, Maharashtra  
 **Tel:** (0712) 2232005
 
 ### Facilities

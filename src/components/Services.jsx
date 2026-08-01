@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
-import drImg from '../img/R-1.jpg';
 
 export default function Services() {
   return (
@@ -20,14 +19,14 @@ export default function Services() {
         <Reveal direction="right" delay={200} className="services-card green-theme cursor-pointer hover:scale-105 transition-transform duration-300">
           <Link to="/doctor/shamik" className="flex items-end justify-center w-full h-full">
             <div className="services-card-bg-wrapper">
-               <img src={drImg} alt="Dr. Shamik Ambatkar" />
+               <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" alt="Dr. Alex Vance" className="w-full h-full object-cover" />
             </div>
             <div className="glass-panel">
               <div className="glass-top">
                  <span className="pill-badge">Chief Surgeon</span>
               </div>
               <div className="glass-middle">
-                 <h3 className="card-doctor-name">Dr. Shamik Ambatkar</h3>
+                 <h3 className="card-doctor-name">Dr. Alex Vance</h3>
               </div>
             </div>
           </Link>
@@ -37,14 +36,14 @@ export default function Services() {
         <Reveal direction="left" delay={300} className="services-card peach-theme cursor-pointer hover:scale-105 transition-transform duration-300">
           <Link to="/doctor/sonal" className="flex items-end justify-center w-full h-full">
             <div className="services-card-bg-wrapper">
-               <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" alt="Dr. Sonal Shamik Ambatkar" />
+               <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" alt="Dr. Elena Morgan" className="w-full h-full object-cover" />
             </div>
             <div className="glass-panel">
               <div className="glass-top">
                  <span className="pill-badge">Specialized Care</span>
               </div>
               <div className="glass-middle">
-                 <h3 className="card-doctor-name">Dr. Sonal Ambatkar</h3>
+                 <h3 className="card-doctor-name">Dr. Elena Morgan</h3>
               </div>
             </div>
           </Link>

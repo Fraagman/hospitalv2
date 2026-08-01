@@ -106,7 +106,7 @@ const CalendarAppointmentBookingDemo = () => {
         </CardFooter>
       </Card>
       <p className='text-muted-foreground mt-6 text-center text-sm' role='region'>
-        Shaureen Advanced Eye Care Appointment Calendar
+        Aura Vision Appointment Calendar
       </p>
     </div>
   )

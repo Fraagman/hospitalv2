@@ -5,9 +5,9 @@ import Reveal from './Reveal';
 const INITIAL_REVIEWS = [
   {
     id: 1,
-    title: <>Exceptional Eye Care:<br/>My Experience at Shaureen</>,
+    title: <>Exceptional Eye Care:<br/>My Experience at Aura Vision</>,
     smallTitle: <>"Exceptional Eye<br/>Care Experience"</>,
-    desc: "I visited Dr. Shamik Ambatkar for a vitreo-retinal consultation and the experience was flawless. The advanced equipment and caring staff made me feel completely at ease.",
+    desc: "I visited the specialists at Aura Vision for a consultation and the experience was flawless. The advanced equipment and caring staff made me feel completely at ease.",
     heroImg: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=400",
     rating: "5/5",
@@ -16,8 +16,8 @@ const INITIAL_REVIEWS = [
   },
   {
     id: 2,
-    title: <>Best Eye Hospital<br/>in Nagpur</>,
-    smallTitle: <>"Best Eye<br/>Hospital in Nagpur"</>,
+    title: <>Best Eye Hospital<br/>in the Region</>,
+    smallTitle: <>"Best Eye Hospital<br/>in the Region"</>,
     desc: "The level of professionalism and care I received was outstanding. The facilities are top-notch and the staff goes above and beyond my expectations.",
     heroImg: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
@@ -28,8 +28,8 @@ const INITIAL_REVIEWS = [
   {
     id: 3,
     title: <>Precise Diagnosis<br/>and Helpful Care</>,
-    smallTitle: <>"Dr. Shamik's diagnosis<br/>was precise and helpful."</>,
-    desc: "Dr. Shamik's diagnosis was precise and helpful. He took the time to explain my condition in detail and laid out a clear treatment plan.",
+    smallTitle: <>"The doctor's diagnosis<br/>was precise and helpful."</>,
+    desc: "The doctor's diagnosis was precise and helpful. They took the time to explain my condition in detail and laid out a clear treatment plan.",
     heroImg: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=400",
     rating: "5/5",
@@ -51,7 +51,7 @@ const INITIAL_REVIEWS = [
     id: 5,
     title: <>Perfect Vision<br/>After Treatment</>,
     smallTitle: <>"My vision is<br/>perfect now!"</>,
-    desc: "My vision is perfect now! It's like seeing the world clearly for the first time in years. Thank you Shaureen Advanced Eye Care for changing my life.",
+    desc: "My vision is perfect now! It's like seeing the world clearly for the first time in years. Thank you Aura Vision for changing my life.",
     heroImg: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
     smallImg: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
     rating: "5/5",
@@ -167,7 +167,7 @@ export default function CaseStudies() {
           </div>
           
           <div className="case-info">
-             <p>Read what our happy patients have to say about their experience with Shaureen Advanced Eye Care. From routine check-ups to complex retinal surgeries, our commitment to excellence shines through their stories.</p>
+             <p>Read what our happy patients have to say about their experience with Aura Vision Center. From routine check-ups to complex retinal surgeries, our commitment to excellence shines through their stories.</p>
              <a href="#" className="explore-link">
                Read More Reviews 
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>

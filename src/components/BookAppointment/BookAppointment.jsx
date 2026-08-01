@@ -185,24 +185,24 @@ export default function BookAppointment() {
 
   /* ── Render ─────────────────────────────────────────────── */
   return (
-    <section className="flex flex-col items-center justify-start px-3 sm:px-4 w-full">
-      <div className="w-full max-w-[900px]">
-        <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(55,112,191,0.10)] overflow-hidden">
+    <section className="flex flex-col items-center justify-start px-4 sm:px-6 lg:px-8 w-full">
+      <div className="w-full max-w-[1024px]">
+        <div className="bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(55,112,191,0.15)] overflow-hidden border border-gray-100">
 
 
           {/* ── Header ────────────────────────────────────── */}
-          <div className="bg-[#3770bf] px-6 py-5 text-center">
-            <h1 className="text-xl sm:text-2xl font-bold text-white italic"
+          <div className="bg-[#3770bf] px-8 py-8 text-center">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white italic"
                 style={{ fontFamily: "'Philosopher', sans-serif" }}>
               Book Appointment
             </h1>
-            <p className="text-blue-200/80 text-xs sm:text-sm mt-0.5">
-              Dr. Shamik Ambatkar • Eye Specialist
+            <p className="text-blue-200/90 text-sm sm:text-base mt-1.5 font-medium">
+              Aura Vision • Eye Care Specialist
             </p>
           </div>
 
           {/* ── Step indicator ────────────────────────────── */}
-          <div className="bg-[#edf1f9] px-4 sm:px-8 py-3.5">
+          <div className="bg-[#edf1f9] px-6 sm:px-10 py-5 border-b border-gray-100">
             <div className="flex items-center max-w-xl mx-auto">
               {STEPS.map((step, i) => (
                 <React.Fragment key={step.num}>
@@ -237,10 +237,10 @@ export default function BookAppointment() {
           </div>
 
           {/* ── Body: Two‑column ──────────────────────────── */}
-          <div className="flex flex-col lg:flex-row min-h-[420px]">
+          <div className="flex flex-col lg:flex-row min-h-[500px]">
 
             {/* ▸ Left – Calendar ─────────────────────────── */}
-            <div className="lg:w-[46%] p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-gray-100">
+            <div className="lg:w-[48%] p-6 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50/30">
 
               {/* month nav */}
               <div className="flex items-center justify-between mb-3">
@@ -270,15 +270,15 @@ export default function BookAppointment() {
               {/* date grid */}
               <div className="grid grid-cols-7 gap-y-0.5">
                 {calendarCells.map(cell => {
-                  if (!cell.day) return <div key={cell.key} className="h-9" />;
+                  if (!cell.day) return <div key={cell.key} className="h-10" />;
                   if (cell.trailing) return (
-                    <div key={cell.key} className="h-9 flex items-center justify-center text-[13px] text-gray-300">{cell.day}</div>
+                    <div key={cell.key} className="h-10 flex items-center justify-center text-[13px] text-gray-300">{cell.day}</div>
                   );
                   const sel = isDateSelected(cell.date);
                   return (
-                    <div key={cell.key} className="flex items-center justify-center">
+                    <div key={cell.key} className="flex items-center justify-center py-1">
                       <button disabled={cell.disabled} onClick={() => handleDateClick(cell.date)}
-                        className={`w-9 h-9 rounded-full text-[13px] font-medium flex items-center justify-center transition-all
+                        className={`w-10 h-10 rounded-full text-sm font-semibold flex items-center justify-center transition-all
                           ${cell.disabled
                             ? cell.isSunday
                               ? 'text-red-300/70 cursor-not-allowed'
@@ -298,26 +298,26 @@ export default function BookAppointment() {
 
               {/* time slots – only on step 1 after date picked */}
               {currentStep === 1 && selectedDate && (
-                <div className="mt-4 pt-4 border-t border-gray-100">
-                  <div className="flex items-center gap-1.5 mb-2.5">
-                    <Clock size={13} className="text-[#3770bf]" />
-                    <span className="text-[11px] font-semibold text-gray-500">
-                      Available — {selectedDate.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'})}
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Clock size={16} className="text-[#3770bf]" />
+                    <span className="text-sm font-bold text-gray-600">
+                      Available — {selectedDate.toLocaleDateString('en-IN',{weekday:'short', day:'numeric', month:'short'})}
                     </span>
                   </div>
                   {availableTimeSlots.length === 0 ? (
-                    <div className="text-center py-4 bg-[#f3f6ff] rounded-lg">
-                      <p className="text-xs text-red-500 font-bold mb-1">No time slots left for today.</p>
-                      <p className="text-[10px] text-gray-500">Please select an upcoming date.</p>
+                    <div className="text-center py-6 bg-[#f3f6ff] rounded-xl">
+                      <p className="text-sm text-red-500 font-bold mb-1.5">No time slots left for today.</p>
+                      <p className="text-xs text-gray-500">Please select an upcoming date.</p>
                     </div>
                   ) : (
-                    <div className="grid grid-cols-3 gap-1.5">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3">
                       {availableTimeSlots.map(slot => (
                         <button key={slot} onClick={() => setSelectedTime(slot)}
-                          className={`py-[7px] rounded-lg text-[11px] font-semibold transition-all
+                          className={`py-2.5 rounded-xl text-xs sm:text-[13px] font-bold transition-all
                             ${selectedTime === slot
-                              ? 'bg-[#3770bf] text-white shadow-sm'
-                              : 'bg-[#f3f6ff] text-gray-600 hover:bg-[#e0e8f7]'
+                              ? 'bg-[#3770bf] text-white shadow-md shadow-[#3770bf]/20 scale-[1.02]'
+                              : 'bg-[#f3f6ff] text-gray-600 hover:bg-[#e0e8f7] hover:text-gray-900'
                             }`}>
                           {slot}
                         </button>
@@ -329,44 +329,44 @@ export default function BookAppointment() {
             </div>
 
             {/* ▸ Right – Step content ────────────────────── */}
-            <div className="lg:w-[54%] p-4 sm:p-6 flex flex-col">
+            <div className="lg:w-[52%] p-6 sm:p-8 lg:p-10 flex flex-col bg-white">
 
               {/* ─ Step 1 ─────────────────────────────────── */}
               {currentStep === 1 && (
                 <div className="flex-1 flex flex-col justify-center">
                   {!selectedDate ? (
-                    <div className="text-center py-10 opacity-70">
-                      <CalendarDays size={40} className="mx-auto text-[#8dc2ff] mb-3" strokeWidth={1.5} />
-                      <p className="text-sm text-gray-400">Select a date from the calendar<br/>to view available time slots</p>
+                    <div className="text-center py-12 opacity-80">
+                      <CalendarDays size={56} className="mx-auto text-[#8dc2ff] mb-5" strokeWidth={1.5} />
+                      <p className="text-base text-gray-500 font-medium leading-relaxed">Select a date from the calendar<br/>to view available time slots</p>
                     </div>
                   ) : !selectedTime ? (
-                    <div className="text-center py-10 opacity-70">
-                      <Clock size={40} className="mx-auto text-[#8dc2ff] mb-3" strokeWidth={1.5} />
-                      <p className="text-sm text-gray-400">Pick a preferred time slot<br/>from the list on the left</p>
+                    <div className="text-center py-12 opacity-80">
+                      <Clock size={56} className="mx-auto text-[#8dc2ff] mb-5" strokeWidth={1.5} />
+                      <p className="text-base text-gray-500 font-medium leading-relaxed">Pick a preferred time slot<br/>from the list on the left</p>
                     </div>
                   ) : (
-                    <div className="space-y-5">
+                    <div className="space-y-6">
                       {/* summary card */}
-                      <div className="bg-[#f3f6ff] rounded-xl p-4 flex items-start gap-3">
-                        <CalendarDays size={18} className="text-[#3770bf] mt-0.5 flex-shrink-0" />
+                      <div className="bg-[#f3f6ff] rounded-2xl p-5 flex items-start gap-4 border border-blue-50">
+                        <CalendarDays size={22} className="text-[#3770bf] mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Selected Appointment</p>
-                          <p className="text-sm font-bold text-gray-800 mt-0.5">{fmtDate}</p>
-                          <p className="text-sm font-bold text-[#3770bf]">{selectedTime}</p>
+                          <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Selected Appointment</p>
+                          <p className="text-base font-bold text-gray-900">{fmtDate}</p>
+                          <p className="text-base font-bold text-[#3770bf] mt-0.5">{selectedTime}</p>
                         </div>
                       </div>
 
-                      <div className="bg-[#fafcf3] rounded-xl p-4 border border-[#cef26d]/25">
-                        <div className="flex items-center gap-1.5 mb-1">
-                          <Stethoscope size={13} className="text-[#3770bf]" />
-                          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Consultation Summary</p>
+                      <div className="bg-[#fafcf3] rounded-2xl p-5 border border-[#cef26d]/40">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Stethoscope size={16} className="text-[#3770bf]" />
+                          <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Consultation Summary</p>
                         </div>
-                        <p className="text-sm text-gray-700">Dr. Shamik Ambatkar • Eye Specialist</p>
-                        <p className="text-xs text-gray-400 mt-0.5">Mon‑Sat: 9:30 AM – 6:30 PM</p>
+                        <p className="text-[15px] font-semibold text-gray-800">Aura Vision • Eye Care Specialist</p>
+                        <p className="text-sm text-gray-500 mt-1">Mon‑Sat: 9:30 AM – 6:30 PM</p>
                       </div>
 
                       <button onClick={handleContinue}
-                        className="w-full py-3.5 rounded-xl bg-[#cef26d] text-[#3770bf] font-bold text-sm uppercase tracking-wide shadow-md shadow-[#cef26d]/25 hover:shadow-lg hover:brightness-[1.03] active:scale-[0.99] transition-all">
+                        className="w-full py-4 mt-2 rounded-xl bg-[#cef26d] text-[#3770bf] font-bold text-[15px] uppercase tracking-wide shadow-md shadow-[#cef26d]/30 hover:shadow-lg hover:brightness-[1.03] active:scale-[0.99] transition-all">
                         Continue →
                       </button>
                     </div>
@@ -376,35 +376,35 @@ export default function BookAppointment() {
 
               {/* ─ Step 2: Auth ───────────────────────────── */}
               {currentStep === 2 && (
-                <div className="flex-1 flex flex-col justify-center space-y-5">
+                <div className="flex-1 flex flex-col justify-center space-y-6">
                   <div className="text-center">
                     {/* google icon */}
-                    <div className="w-14 h-14 rounded-2xl bg-white shadow-lg shadow-gray-200/60 flex items-center justify-center mx-auto mb-4">
-                      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <div className="w-16 h-16 rounded-3xl bg-white shadow-xl shadow-gray-200/50 flex items-center justify-center mx-auto mb-5 border border-gray-50">
+                      <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
                         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                         <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                         <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                       </svg>
                     </div>
-                    <h3 className="text-base font-bold text-gray-800">Verify Your Identity</h3>
-                    <p className="text-xs text-gray-500 mt-0.5">Quick sign‑in to secure your appointment</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">Verify Your Identity</h3>
+                    <p className="text-sm text-gray-500">Quick sign‑in to secure your appointment</p>
                   </div>
 
                   {authError && (
-                    <div className="flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2.5 rounded-xl text-xs">
-                      <AlertCircle size={14} className="flex-shrink-0" /><span>{authError}</span>
+                    <div className="flex items-center gap-2 bg-red-50 text-red-600 px-4 py-3 rounded-xl text-sm border border-red-100">
+                      <AlertCircle size={16} className="flex-shrink-0" /><span>{authError}</span>
                     </div>
                   )}
 
                   <button onClick={handleGoogleSignIn} disabled={authLoading}
-                    className={`w-full py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2.5 transition-all ${
+                    className={`w-full py-4 rounded-xl font-bold text-[15px] flex items-center justify-center gap-3 transition-all ${
                       authLoading
                         ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                         : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[#3770bf]/40 hover:shadow-md'}`}>
-                    {authLoading ? <><Loader2 size={16} className="animate-spin"/>Signing in…</>
+                    {authLoading ? <><Loader2 size={18} className="animate-spin"/>Signing in…</>
                      : <>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
                           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -417,12 +417,12 @@ export default function BookAppointment() {
                   {/* dev bypass */}
                   {import.meta.env.DEV && (
                     <button onClick={() => { mockLogin({uid:'mock-123',displayName:'Demo User',email:'demo@example.com',photoURL:''}); goTo(3); }}
-                      className="w-full py-2 rounded-xl border border-dashed border-[#3770bf]/25 text-[11px] font-semibold text-[#3770bf] hover:bg-[#3770bf]/5 transition">
+                      className="w-full py-2.5 rounded-xl border border-dashed border-[#3770bf]/30 text-xs font-semibold text-[#3770bf] hover:bg-[#3770bf]/5 transition">
                       Dev Bypass Sign In
                     </button>
                   )}
 
-                  <button onClick={() => goTo(1)} className="text-xs text-gray-400 hover:text-[#3770bf] transition mt-1">
+                  <button onClick={() => goTo(1)} className="text-sm font-medium text-gray-400 hover:text-[#3770bf] transition mt-2">
                     ← Back to Date &amp; Time
                   </button>
                 </div>
@@ -430,98 +430,100 @@ export default function BookAppointment() {
 
               {/* ─ Step 3: Details ─────────────────────────── */}
               {currentStep === 3 && (
-                <div className="space-y-4">
+                <div className="space-y-5">
 
                   {/* chosen date/time badge */}
-                  <div className="bg-[#f3f6ff] rounded-xl p-3.5 flex items-start gap-3">
-                    <CalendarDays size={18} className="text-[#3770bf] mt-0.5 flex-shrink-0" />
+                  <div className="bg-[#f3f6ff] rounded-xl p-4 flex items-start gap-4 border border-blue-50">
+                    <CalendarDays size={20} className="text-[#3770bf] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Chosen Date &amp; Time:</p>
-                      <p className="text-sm font-bold text-gray-800 mt-0.5">
+                      <p className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-1">Chosen Date &amp; Time:</p>
+                      <p className="text-[15px] font-bold text-gray-900">
                         {fmtDate}, {selectedTime}
                       </p>
                     </div>
                   </div>
 
                   {/* patient details heading */}
-                  <h4 className="text-sm font-bold text-gray-800 pt-1">Patient Details</h4>
+                  <h4 className="text-base font-bold text-gray-800 pt-2">Patient Details</h4>
 
                   {/* signed‑in banner */}
                   {user && (
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs font-bold flex-shrink-0 overflow-hidden">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold flex-shrink-0 overflow-hidden ring-2 ring-gray-100">
                         {user.photoURL
                           ? <img src={user.photoURL} alt="" className="w-full h-full object-cover" />
                           : (profile?.name || user.displayName || user.email || '?').charAt(0).toUpperCase()
                         }
                       </div>
                       <div className="min-w-0">
-                        <p className="text-[10px] text-gray-400 leading-none">Signed in as</p>
-                        <p className="text-sm font-semibold text-gray-800 truncate">
+                        <p className="text-xs text-gray-400 font-medium">Signed in as</p>
+                        <p className="text-[15px] font-bold text-gray-800 truncate">
                           {profile?.name || user.displayName || user.email}
                         </p>
                       </div>
                     </div>
                   )}
 
-                  {/* name input */}
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-500 mb-1">Patient Name</label>
-                    <input type="text" value={name}
-                      onChange={e => setName(e.target.value)}
-                      placeholder="Enter patient name"
-                      className="w-full px-0 py-2 border-0 border-b-2 border-gray-200 text-sm font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#3770bf] transition-colors bg-transparent" />
-                  </div>
+                  <div className="space-y-4">
+                    {/* name input */}
+                    <div>
+                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5">Patient Name</label>
+                      <input type="text" value={name}
+                        onChange={e => setName(e.target.value)}
+                        placeholder="Enter patient name"
+                        className="w-full px-0 py-2.5 border-0 border-b-2 border-gray-200 text-base font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#3770bf] focus:ring-0 transition-colors bg-transparent" />
+                    </div>
 
-                  {/* phone input */}
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-500 mb-1">Phone Number</label>
-                    <input type="tel" value={phone}
-                      onChange={e => { setPhone(e.target.value.replace(/\D/g,'').slice(0,10)); setPhoneError(''); }}
-                      placeholder="Enter 10‑digit number" maxLength={10}
-                      className={`w-full px-0 py-2 border-0 border-b-2 text-sm font-medium text-gray-800 placeholder-gray-400 focus:outline-none transition-colors bg-transparent ${
-                        phoneError ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-[#3770bf]'}`} />
-                    {phoneError && (
-                      <p className="text-[11px] text-red-500 mt-1 flex items-center gap-1">
-                        <AlertCircle size={11} />{phoneError}
-                      </p>
-                    )}
+                    {/* phone input */}
+                    <div>
+                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5">Phone Number</label>
+                      <input type="tel" value={phone}
+                        onChange={e => { setPhone(e.target.value.replace(/\D/g,'').slice(0,10)); setPhoneError(''); }}
+                        placeholder="Enter 10‑digit number" maxLength={10}
+                        className={`w-full px-0 py-2.5 border-0 border-b-2 text-base font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors bg-transparent ${
+                          phoneError ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-[#3770bf]'}`} />
+                      {phoneError && (
+                        <p className="text-xs text-red-500 mt-1.5 flex items-center gap-1.5 font-medium">
+                          <AlertCircle size={14} />{phoneError}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   {/* consultation summary */}
-                  <div className="bg-[#fafcf3] rounded-xl p-3.5 border border-[#cef26d]/20">
-                    <h4 className="text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1.5">Consultation Summary</h4>
-                    <p className="text-sm text-gray-700">Dr. Shamik Ambatkar • Eye Specialist</p>
-                    <div className="flex items-center gap-1.5 mt-1.5 text-gray-400">
-                      <Clock size={11} />
-                      <span className="text-[11px]">Consultation Hours</span>
+                  <div className="bg-[#fafcf3] rounded-xl p-4 border border-[#cef26d]/40">
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Consultation Summary</h4>
+                    <p className="text-[15px] font-semibold text-gray-800">Aura Vision • Eye Care Specialist</p>
+                    <div className="flex items-center gap-2 mt-2 text-gray-400">
+                      <Clock size={14} />
+                      <span className="text-xs font-medium">Consultation Hours</span>
                     </div>
-                    <p className="text-[11px] text-gray-500 ml-[17px]">Mon‑Sat: 9:30 AM – 6:30 PM</p>
+                    <p className="text-xs font-medium text-gray-500 ml-5">Mon‑Sat: 9:30 AM – 6:30 PM</p>
                   </div>
 
                   {/* CTA */}
                   <button onClick={handleSubmit}
                     disabled={!name.trim() || submitted}
-                    className={`w-full py-4 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all
+                    className={`w-full py-4 rounded-xl font-bold text-[15px] uppercase tracking-wide flex items-center justify-center gap-2.5 transition-all mt-2
                       ${submitted
                         ? 'bg-green-100 text-green-600 cursor-not-allowed'
                         : !name.trim()
                           ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                          : 'bg-[#cef26d] text-[#3770bf] shadow-lg shadow-[#cef26d]/30 hover:shadow-xl hover:brightness-[1.03] active:scale-[0.99]'}`}>
+                          : 'bg-[#cef26d] text-[#3770bf] shadow-md shadow-[#cef26d]/30 hover:shadow-lg hover:brightness-[1.03] active:scale-[0.99]'}`}>
                     {submitted
                       ? <>Redirecting to WhatsApp…</>
-                      : <>Confirm Appointment &amp; Send to WhatsApp <MessageCircle size={16}/></>}
+                      : <>Confirm Booking <MessageCircle size={18}/></>}
                   </button>
 
                   {/* security */}
-                  <p className="text-[10px] text-gray-400 text-center leading-relaxed">
-                    <ShieldCheck size={10} className="inline mr-0.5 align-middle" />
-                    Your data is secure and only shared with the doctor's clinic via WhatsApp.
+                  <p className="text-xs font-medium text-gray-400 text-center leading-relaxed">
+                    <ShieldCheck size={14} className="inline mr-1 align-sub" />
+                    Your data is secure and only shared with the doctor's clinic.
                   </p>
 
                   {/* back */}
                   <button onClick={() => goTo(user ? 1 : 2)} disabled={submitted}
-                    className="w-full text-center text-xs text-gray-400 hover:text-[#3770bf] transition">
+                    className="w-full text-center text-sm font-medium text-gray-400 hover:text-[#3770bf] transition">
                     ‹ Back
                   </button>
                 </div>

@@ -101,7 +101,15 @@ export default function DoctorProfile() {
             <motion.div className="dp2-collage-main"
               initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}>
-              <img src={doctor.image || drImg} alt={doctor.name} />
+              {doctor.image ? (
+                <img src={doctor.image} alt={doctor.name} />
+              ) : (
+                <div style={{ width: '100%', height: '100%', minHeight: '320px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', color: '#e2e8f0', borderRadius: '16px' }}>
+                  <Eye size={64} style={{ color: '#cef26d', marginBottom: '12px' }} />
+                  <span style={{ fontSize: '1.25rem', fontWeight: '700', color: '#f8fafc', letterSpacing: '0.05em' }}>{doctor.name}</span>
+                  <span style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '4px' }}>{doctor.specialisation}</span>
+                </div>
+              )}
               <div className="dp2-collage-main-border" />
             </motion.div>
 
@@ -111,8 +119,8 @@ export default function DoctorProfile() {
               transition={{ duration: 0.7, delay: 0.5 }}>
               <div className="dp2-collage-map-inner">
                 <MapPin size={20} color={C.herb} />
-                <span>Nagpur</span>
-                <small>Maharashtra, India</small>
+                <span>Medical District</span>
+                <small>Health Sciences Campus</small>
               </div>
             </motion.div>
 

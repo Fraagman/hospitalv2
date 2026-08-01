@@ -73,7 +73,7 @@ export default function Navbar() {
       <nav className="navbar fade-in-up visible">
         <div className="nav-logo-wrapper">
           <Link to="/" className="logo text-white hover:opacity-80 transition-opacity">
-            Shaureen
+            Aura Vision
           </Link>
         </div>
         <div className="nav-spacer"></div>
